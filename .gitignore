@@ -1,0 +1,28 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Byte-code files
+__pycache__/
+*.pyc
+
+# Distribution and packaging
+dist/
+build/
+*.egg-info/
+
+# Operating System files
+.DS_Store
+.vscode/
+.idea/
+
+# Project specifyc
+
+data/*
+demo/*
+re-benchmark/*
+bert-ner-finetuned
+bert-ner-finetuned-final
+design_document_diagram.puml 
+design_document.txt

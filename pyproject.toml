@@ -1,0 +1,21 @@
+[project]
+name = "ai-cli"
+version = "0.1.0"
+description = "A CLI tool for NLP tasks."
+authors = [
+  { name = "Daniel Pichardo", email = "calmecac.dev@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+  "typer[all]",
+]
+
+[project.scripts]
+nlp = "ai_cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
