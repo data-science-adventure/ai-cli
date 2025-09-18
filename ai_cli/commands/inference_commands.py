@@ -68,10 +68,10 @@ def sentiment(  # Use Annotated to define a command-line option with rich metada
 
 @inference_app.command()
 def image_to_text(
-    text: Annotated[
+    image_url: Annotated[
         str,
         typer.Option(
-            help="The text to analize for sentiment classification",
+            help="Convert image to text",
             prompt=True,  # Prompts the user for input if not provided
         ),
     ],
@@ -79,19 +79,6 @@ def image_to_text(
     """
     This command initiates the model training process.
     """
-    # You can use a URL to an image on the web...
-    image_url = "http://images.cocodataset.org/val2017/000000039769.jpg"
-    #
-
-    # ...or a path to a local image file.
-    # local_image_path = "path/to/your/image.jpg"
-
-    # Generate the caption
-    # generated_caption = get_caption_from_image(image_url)
-
-    # Print the result
-    # print(f"Image Source: {image_url}")
-    # print(f"Generated Caption: {generated_caption}")
 
     # 1. Load model, feature extractor, and tokenizer
     model_checkpoint = "nlpconnect/vit-gpt2-image-captioning"
@@ -103,7 +90,10 @@ def image_to_text(
     model = VisionEncoderDecoderModel.from_pretrained(model_checkpoint)
 
     # 2. Load and preprocess the image
-    image_url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+    #image_url = "http://images.cocodataset.org/val2017/000000039769.jpg"
+    #image_url = "https://pdollar.github.io/files/images/PiotrDollar.jpg"
+    #image_url = "https://cocodataset.org/images/panoptic-splash.png"
+
     image = Image.open(requests.get(image_url, stream=True).raw).convert("RGB")
 
     # The feature extractor now returns a dictionary with pixel_values AND attention_mask
