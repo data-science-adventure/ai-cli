@@ -19,7 +19,6 @@ build/
 
 # Project specifyc
 
-data/*
 demo/*
 re-benchmark/*
 bert-ner-finetuned
